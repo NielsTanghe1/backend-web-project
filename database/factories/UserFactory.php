@@ -21,7 +21,10 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+
+    protected $model = \App\Models\User::class;
+
+    public function definition()
     {
         return [
             'name' => fake()->name(),

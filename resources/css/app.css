@@ -27,3 +27,15 @@
 .nav-float-right{
     float: right;
 }
+
+.post{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    background-color: rgb(205, 187, 187);
+    border-radius: 20px;
+
+    padding: 20px;
+    margin: 10px;
+}

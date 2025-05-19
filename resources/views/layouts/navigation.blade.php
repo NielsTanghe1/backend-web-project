@@ -5,13 +5,16 @@
 
         <a href="{{ route('news') }}">News</a>
 
-        <a href="{{ route('dashboard') }}"> Dashboard </a>
-
         <a href="{{ route('FAQ') }}">FAQ</a>
 
         <a href="{{ route('contact') }}">Contact</a>
 
         <div class="nav-float-right">
+            @auth
+            <a href="{{ route('makepost') }}">Make a post</a>
+
+            <a href="{{ route('dashboard') }}"> Dashboard </a>
+            @endauth
             <a href="{{ route('login') }}"> Log in </a>
 
             <a href="{{ route('register') }}"> Register </a>
