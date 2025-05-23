@@ -28,9 +28,14 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'displayname' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'admin' => false,
             'password' => static::$password ??= Hash::make('password'),
+            'bio' => $this->faker->paragraphs(1, true),
+            'birthday' => fake()->date('Y-m-d', 'now'),
+            'image' => 'default-profile-picture.jpg',
             'remember_token' => Str::random(10),
         ];
     }

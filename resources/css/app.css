@@ -39,3 +39,14 @@
     padding: 20px;
     margin: 10px;
 }
+
+.post img{
+    border-radius: 100%;
+    width: 50px;
+}
+
+.user-banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

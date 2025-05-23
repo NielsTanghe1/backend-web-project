@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
 use App\Models\Post;
-use App\Http\Requests\StorePostRequest;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-     public function store(StorePostRequest $request)
+     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required|min:10',
+            'user_id' => 'required',
+            'image' => 'nullable|image|max:2048',
+        ]);
+
         // Validation
-        $post = Post::create($request->validated());
+        $post = Post::create($validated);
         
-        // if ($request->hasFile('image')) {
-        //     $post->image = $request->file('image')->store('posts', 'public');
-            
-        // }
+        if ($request->hasFile('image')) {
+            $post->image = $request->file('image')->store('storage', 'public');
+        }
 
         $post->save();
 

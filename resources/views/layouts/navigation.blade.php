@@ -11,9 +11,14 @@
 
         <div class="nav-float-right">
             @auth
+            @if(Auth::user()->admin == true)
+                <a href="{{ route('adminpanel') }}"> Admin Panel </a>
+            @endif
             <a href="{{ route('makepost') }}">Make a post</a>
 
             <a href="{{ route('dashboard') }}"> Dashboard </a>
+
+            <a href="{{ route('profile.edit') }}"> Edit profile </a>
             @endauth
             <a href="{{ route('login') }}"> Log in </a>
 

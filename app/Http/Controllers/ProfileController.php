@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +16,8 @@ class ProfileController extends Controller
      * Display the user's profile form.
      */
     public function edit(Request $request): View
-    {
-        return view('profile.edit', [
+    { 
+        return view('profile.edit-profile', [
             'user' => $request->user(),
         ]);
     }
@@ -26,19 +25,59 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+    public function updatedisplayname(Request $request)
+    {  
+        $user = $request->user();
 
-        $request->user()->save();
+        $validated = $request->validate([
+            'displayname' => 'required|string:max:255',
+        ]);
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        $user->update($validated);
+        
+        return Redirect::route('dashboard');
     }
+    public function updatebio(Request $request)
+    {  
+        $user = $request->user();
 
+        $validated = $request->validate([
+            'bio' => 'required|string:max:1000',
+        ]);
+
+        $user->update($validated);
+        
+        return Redirect::route('dashboard');
+    }
+    public function updateprofilepicture(Request $request)
+    {  
+        $user = $request->user();
+
+        $validated = $request->validate([
+            'image' => 'required|image|max:2048',
+        ]);
+
+        $imagePath = $request->file('image')->store('users', 'public');
+        dd($imagePath);
+        $user->update($validated);
+        $user->image = $imagePath;
+        $user->save();
+        
+        return Redirect::route('dashboard');
+    }
+    public function updatebirthday(Request $request)
+    {  
+        $user = $request->user();
+
+        $validated = $request->validate([
+            'birthday' => 'required|string|max:255',
+        ]);
+
+        $user->update($validated);
+        
+        return Redirect::route('dashboard');
+    }
     /**
      * Delete the user's account.
      */

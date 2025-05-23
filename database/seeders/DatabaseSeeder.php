@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Illuminate\Support\Facades\Hash;
 use \App\Models\User;
 use \App\Models\Post;
 
@@ -17,5 +17,16 @@ class DatabaseSeeder extends Seeder
                Post::factory(5)->create()
             );
         });
+
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@ehb.be',
+            'password' => 'Password!321',
+            'displayname' => 'theRealAdmin',
+            'bio' => 'I am the real admin of this website',
+            'admin' => true,
+            'birthday' => '1 Januari',
+            'image' => 'default-profile-picture.jpg',
+        ]);
     }
 }

@@ -2,13 +2,11 @@
 
 @section('content')
 
-<h1>User dashboard</h1>
+<h1>{{$user->name}} ({{$user->displayname}})</h1>
 
-<h2>Welcome, {{$user->name}} ({{$user->displayname}})</h2>
-<p>Your bio: {{$user->bio}}</p>
-<h3>Your posts:</h3>
+<p>Bio: <br> {{$user->bio}}</p>
+<h3>Posts:</h3>
     @foreach ($posts as $post)
        @include('components.post')
     @endforeach
-
 @endsection
