@@ -24,6 +24,10 @@ Route::get('/makepost', function () {
     return view('makepost'); 
 }) -> name('makepost');
 
+Route::patch('/makeadmin', [ProfileController::class, 'makeadmin'])->name('makeadmin');
+Route::put('/removeadmin', [ProfileController::class, 'makeadmin'])->name('removeadmin');
+
+
 Route::post('/post', [PostController::class, 'store'])->name('post.store');
 
 Route::get('/contact', function () {
@@ -34,10 +38,11 @@ Route::get('/admin', function () {
     if (Auth::check()) {
     // Gebruiker is ingelogd
         $user = Auth::user();
+
         if($user->admin == true){
             return view('adminpanel'); 
         }
-    }
+    }   
     // Niet ingelogd, redirect naar home
     return redirect('home');
 }) -> name('adminpanel');

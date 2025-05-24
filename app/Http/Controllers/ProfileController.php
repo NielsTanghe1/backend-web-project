@@ -78,6 +78,37 @@ class ProfileController extends Controller
         
         return Redirect::route('dashboard');
     }
+
+    public function makeadmin(Request $request)
+    {  
+        dd($request);
+
+        $user = User::find($request->id);
+
+        if(Auth::user()->admin == true){
+            $user->admin = 1;
+            $user->save();
+
+            return Redirect::route('adminpanel');
+        }else{
+            return Redirect::route('home');
+        }
+    }
+
+    public function removeadmin(Request $request)
+    {  
+        $user = $request->user();
+        $admin = Auth::user();
+        if($admin->admin == true){
+            $user = $request->user();
+            $user->admin = false;
+            $user->save();
+    
+            return Redirect::route('adminpanel');
+        }else{
+            return Redirect::route('home');
+        }
+    }
     /**
      * Delete the user's account.
      */
