@@ -6,7 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use App\Models\Post;
+
 
 
 Route::get('/', [IndexController::class, 'allposts'])->name('home');
@@ -17,18 +18,20 @@ Route::post('/editpfp', [ProfileController::class, 'updateprofilepicture'])->nam
 Route::post('/editbd', [ProfileController::class, 'updatebirthday'])->name('updateBirthday');
 
 Route::get('/profile/{user}', function($user){
-    return view('profilepage', ['user' => $user]);
+    $posts = Post::where('user_id', '=', $user)->get();
+    return view('profilepage', ['user' => $user], ['posts' => $posts]);
 }) -> name('profile');
 
 Route::get('/makepost', function () {
     return view('makepost'); 
 }) -> name('makepost');
 
-Route::patch('/makeadmin', [ProfileController::class, 'makeadmin'])->name('makeadmin');
-Route::put('/removeadmin', [ProfileController::class, 'makeadmin'])->name('removeadmin');
-
-
 Route::post('/post', [PostController::class, 'store'])->name('post.store');
+
+Route::patch('/makeadmin', [ProfileController::class, 'makeadmin'])->name('makeadmin');
+Route::patch('/removeadmin', [ProfileController::class, 'removeadmin'])->name('removeadmin');
+Route::delete('/destroy', [ProfileController::class, 'destroy'])->name('deleteuser');
+
 
 Route::get('/contact', function () {
     return view('contact'); 
@@ -44,7 +47,7 @@ Route::get('/admin', function () {
         }
     }   
     // Niet ingelogd, redirect naar home
-    return redirect('home');
+    return redirect('/');
 }) -> name('adminpanel');
 
 Route::get('/FAQ', function () {

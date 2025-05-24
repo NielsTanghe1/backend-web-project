@@ -13,19 +13,22 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'content' => 'required|min:10',
             'user_id' => 'required',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'sometimes|image|max:2048',
         ]);
 
-        // Validation
-        $post = Post::create($validated);
+         dd($validated);
+        $imagePath = $request->file('image')->store('posts', 'public');
         
-        if ($request->hasFile('image')) {
-            $post->image = $request->file('image')->store('storage', 'public');
-        }
+       
 
-        $post->save();
+        $post = Post::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'image' => $imagePath,
+        ]);
 
-        return redirect()->route('dashboard');
+
+        return view('dashboard');
     }
 }
 

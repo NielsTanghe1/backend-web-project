@@ -81,9 +81,7 @@ class ProfileController extends Controller
 
     public function makeadmin(Request $request)
     {  
-        dd($request);
-
-        $user = User::find($request->id);
+        $user = User::find($request->user);
 
         if(Auth::user()->admin == true){
             $user->admin = 1;
@@ -97,13 +95,12 @@ class ProfileController extends Controller
 
     public function removeadmin(Request $request)
     {  
-        $user = $request->user();
-        $admin = Auth::user();
-        if($admin->admin == true){
-            $user = $request->user();
-            $user->admin = false;
+        $user = User::find($request->user);
+
+        if(Auth::user()->admin == true){
+            $user->admin = 0;
             $user->save();
-    
+
             return Redirect::route('adminpanel');
         }else{
             return Redirect::route('home');
@@ -114,18 +111,8 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
+        $user = User::find($request->user);
         $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
 
         return Redirect::to('/');
     }

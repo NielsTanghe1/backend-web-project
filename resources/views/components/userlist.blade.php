@@ -18,13 +18,21 @@ use App\Models\User;
         <tr class="user-row">
             <td>{{$user->name}} [{{$user->displayname}}]</td>
             <td>{{$isAdmin}}</td>
-            <td class="admin-button"><a href="#">DELETE USER</a></td>
+            <td>
+                <form method="POST" action="{{ route('deleteuser') }}">
+                    @method('DELETE')
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" value="{{$user->id}}" id="user" name="user">
+                    <button type="submit">DELETE USER</button>
+                </form>
+            </td>
             @if($user->admin == false)
                 <td>
                     <form method="POST" action="{{ route('makeadmin') }}">
                         @method('PATCH')
                         @csrf
-                        <input type="hidden" value="{{$user->id}}" id="id" name="id">
+                        <input type="hidden" value="{{$user->id}}" id="user" name="user">
                         <button type="submit">Make admin</button>
                     </form>
                 </td>
@@ -33,9 +41,10 @@ use App\Models\User;
                 <td>
                     @csrf
                     <form method="POST" action="{{ route('removeadmin') }}">
-                        @method('PUT')
+                        @method('PATCH')
                         @csrf
-                        <button type="submit" value="{{$user}}">Remove admin</button>
+                        <input type="hidden" value="{{$user->id}}" id="user" name="user">
+                        <button type="submit">Remove admin</button>
                     </form>
                 </td>
             @endif              

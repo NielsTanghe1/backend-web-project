@@ -5,14 +5,16 @@
         $posts = Post::all();
 
     foreach ($posts as $post) {
-        echo 
-        '<div class="post">
-        <h2>'.$post->title.'</h2>
-        <p>
-            '.$post->content.'
-        </p>
-        <a>Posted by: '.User::find($post->user_id)->name.'<a>
-        </div>';
+        if (User::where('id', '=', $post->user_id)->exists()) {
+            echo 
+            '<div class="post">
+            <h2>'.$post->title.'</h2>
+            <p>
+                '.$post->content.'
+            </p>
+            <a>Posted by: '.User::find($post->user_id)->name.'<a>
+            </div>';
+        }
     }
 ?>
 
