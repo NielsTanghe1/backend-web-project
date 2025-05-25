@@ -114,7 +114,7 @@ class ProfileController extends Controller
         $user = User::find($request->user);
         $user->delete();
 
-        return Redirect::to('/');
+        return Redirect::to('/admin');
     }
 
     public function userposts() : View{

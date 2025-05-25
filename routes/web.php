@@ -4,6 +4,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
@@ -26,7 +28,10 @@ Route::get('/makepost', function () {
     return view('makepost'); 
 }) -> name('makepost');
 
-Route::post('/post', [PostController::class, 'store'])->name('post.store');
+Route::post('/', [PostController::class, 'store'])->name('post.store');
+Route::post('/', [NewsController::class, 'store'])->name('news.store');
+Route::post('/', [CommentController::class, 'store'])->name('comment.store');
+
 
 Route::patch('/makeadmin', [ProfileController::class, 'makeadmin'])->name('makeadmin');
 Route::patch('/removeadmin', [ProfileController::class, 'removeadmin'])->name('removeadmin');
@@ -54,9 +59,7 @@ Route::get('/FAQ', function () {
     return view('FAQ');
 }) -> name('FAQ');
 
-Route::get('/news', function () {
-    return view('news');
-}) -> name('news');
+Route::get('/news', [NewsController::class, 'getarticles']) -> name('news');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
