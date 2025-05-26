@@ -1,11 +1,15 @@
 <?php
 
 namespace Database\Seeders;
+
+use App\Models\Anwser;
 use Illuminate\Support\Facades\Hash;
 use \App\Models\User;
 use \App\Models\Post;
 use \App\Models\News;
 use \App\Models\Comment;
+use App\Models\Contact;
+use App\Models\Faq;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -39,6 +43,9 @@ class DatabaseSeeder extends Seeder
                     ]);
                })
             );
+            $user->contacts()->saveMany(
+                Contact::factory(1)->create()
+            );
         });
 
         User::create([
@@ -51,5 +58,6 @@ class DatabaseSeeder extends Seeder
             'birthday' => '1 Januari',
             'image' => 'default-profile-picture.jpg',
         ]);
+
     }
 }

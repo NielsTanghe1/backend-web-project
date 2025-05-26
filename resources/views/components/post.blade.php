@@ -6,15 +6,17 @@
 ?>
 @if(User::where('id', '=', $post->user_id)->exists())
     <div class="post">
-        <a href="{{ route('profile', ['user' => $user]) }}">Go to profile</a>
+        
 
         <div class="user-banner">
             <img src="{{ asset('storage/' . $user->image) }}" alt="profile-picture"></img>
             @if($user->admin == 1)
             <i style="font-size: small;">User is admin</i>
             @endif
-            <h2>{{$user->displayname}}<h2>
+            <h2 style="margin: 10px; font-weight: bold;">{{$user->displayname}}<h2>
+            <a href="{{ route('profile', ['user' => $user]) }}">Go to profile</a>
         </div>
+
         <h2>Posted at: {{$post->created_at}}</h2>
         <h1 style="font-size: larger; font-weight:bolder;">{{$post->title}}</h1>
         <p>

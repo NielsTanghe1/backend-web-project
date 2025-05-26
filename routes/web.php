@@ -5,7 +5,9 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsController;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
@@ -28,9 +30,10 @@ Route::get('/makepost', function () {
     return view('makepost'); 
 }) -> name('makepost');
 
-Route::post('/', [PostController::class, 'store'])->name('post.store');
-Route::post('/', [NewsController::class, 'store'])->name('news.store');
-Route::post('/', [CommentController::class, 'store'])->name('comment.store');
+Route::post('/storepost', [PostController::class, 'store'])->name('post.store');
+Route::post('/storenews', [NewsController::class, 'store'])->name('news.store');
+Route::post('/storecomment', [CommentController::class, 'store'])->name('comment.store');
+Route::post('/storecontact', [ContactController::class, 'store'])->name('contact.store');
 
 
 Route::patch('/makeadmin', [ProfileController::class, 'makeadmin'])->name('makeadmin');
@@ -58,6 +61,16 @@ Route::get('/admin', function () {
 Route::get('/FAQ', function () {
     return view('FAQ');
 }) -> name('FAQ');
+
+Route::get('/FAQ/general', function () {
+    $generalquestions = Faq::where('type', 1);
+    return view('components.faqgeneral', ['questions', $generalquestions]);
+}) -> name('faq.general');
+
+Route::get('/FAQ/technical', function () {
+    $technicalquestions = Faq::where('type', 2);
+    return view('components.faqtechnical', ['questions', $technicalquestions]);
+}) -> name('faq.technical');
 
 Route::get('/news', [NewsController::class, 'getarticles']) -> name('news');
 

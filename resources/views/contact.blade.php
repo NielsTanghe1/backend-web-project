@@ -2,6 +2,9 @@
 
 @section('content')
 
-<h1>Contact</h1>
+<div class="home-container">
+    <h1>Contact</h1>
+    @include('components.contactform')
+</div>
 
 @endsection
