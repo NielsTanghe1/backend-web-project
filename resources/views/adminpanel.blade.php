@@ -8,15 +8,14 @@ use App\Models\Contact;
     $items = Contact::all();
 ?>
 
-<h1>Admin panel</h1>
+
 
 <div class="news-container">
-    <h2>Make a news article:</h2>
+    <h1>Admin panel</h1>
     @include('components.newsform')
 </div>
 
 <div class="admin-container">
-
     <div class="user-table-container">
         <h2>Manage users:</h2>
 
