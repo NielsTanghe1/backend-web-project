@@ -100,6 +100,29 @@
     margin: 5%;
 }
 
+.comment-form{
+    background-color: rgba(255, 255, 255, 0.31);
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 1px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.comment-form input{
+    width: 100%;
+}
+
+.comment-form button{
+    width: 100%;
+    background-color: rgba(56, 0, 0, 0.248);
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 1px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
 .comment{
     background-color: rgba(255, 255, 255, 0.31);
     border-radius: 10px;
@@ -149,3 +172,22 @@
     padding: 15px;
     border-radius: 10px;
 }
+
+.dashboard-banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00000012;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.dashboard-banner img{
+    width: 100px;
+}
+
+.dashboard-banner h2{
+    font-weight: bold;
+}
+

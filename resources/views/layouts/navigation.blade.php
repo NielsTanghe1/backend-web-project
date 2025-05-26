@@ -1,14 +1,14 @@
 
 <div class="nav-container">
     <nav class="navbar">
-        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('index') }}">Home</a>
 
         <a href="{{ route('news') }}">News</a>
 
         <a href="{{ route('FAQ') }}">FAQ</a>
-
+        @if(Auth::user())
         <a href="{{ route('contact') }}">Contact</a>
-
+        @endif
         <div class="nav-float-right">
             @auth
             @if(Auth::user()->admin == true)

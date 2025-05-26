@@ -13,7 +13,7 @@ use App\Models\User;
 
 class IndexController extends Controller
 {
-    public function allposts() : View{
+    public function allposts(){
         $posts = Post::all();
 
         return view('index', ['posts' => $posts]);

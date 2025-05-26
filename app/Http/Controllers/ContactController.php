@@ -14,10 +14,7 @@ class ContactController extends Controller
             'user_id' => 'required',
         ]);
 
-        $contact = Contact::create([
-            'content' => $request->content,
-            'user_id' => $request->user_id,
-        ]);
+        $contact = Contact::create($validated);
 
 
         return view('contact');

@@ -119,7 +119,7 @@ class ProfileController extends Controller
 
     public function userposts() : View{
         $user = Auth::user();
-        $posts = Post::where('user_id', '=', Auth::user()->id)->get();
+        $posts = Post::where('user_id', '=', Auth::user()->id)->get()->sortByDesc('created_at');
 
         return view('dashboard', ['user' => $user], ['posts' => $posts]);
     }

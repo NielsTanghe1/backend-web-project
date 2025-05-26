@@ -9,26 +9,22 @@ class PostController extends Controller
 {
     public function store(Request $request)
     {
+        // dd($request);
         $validated = $request->validate([
             'title' => 'required|max:255',
-            'content' => 'required|min:10',
+            'content' => 'required',
+            'image' => 'nullable|image|max:2048',
             'user_id' => 'required',
-            'image' => 'sometimes|image|max:2048',
         ]);
 
-         dd($validated);
-        $imagePath = $request->file('image')->store('posts', 'public');
-        
-       
+        $post = Post::create($validated);
 
-        $post = Post::create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'image' => $imagePath,
-        ]);
+        if ($request->hasFile('image')) {
+            $post->image = $request->file('image')->store('posts', 'public');
+            $post->save();
+        }
 
-
-        return view('dashboard');
+        return view('index');
     }
 }
 

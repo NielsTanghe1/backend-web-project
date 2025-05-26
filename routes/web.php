@@ -14,7 +14,9 @@ use App\Models\Post;
 
 
 
-Route::get('/', [IndexController::class, 'allposts'])->name('home');
+Route::get('/', function(){
+    return view('index');
+})->name('index');
 
 Route::post('/editdisplayname', [ProfileController::class, 'updatedisplayname'])->name('updateDisplayname');
 Route::post('/editbio', [ProfileController::class, 'updatebio'])->name('updateBio');
@@ -42,7 +44,10 @@ Route::delete('/destroy', [ProfileController::class, 'destroy'])->name('deleteus
 
 
 Route::get('/contact', function () {
-    return view('contact'); 
+    if(Auth::user()){
+        return view('contact'); 
+    }
+    return view('index'); 
 }) -> name('contact');
 
 Route::get('/admin', function () {

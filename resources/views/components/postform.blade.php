@@ -1,10 +1,9 @@
  <form method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
         @csrf
-        @method('POST')
-        <label for="image" class="form-label">Title</label>
+        <label for="title" class="form-label">Post title</label>
         <input type="text" class="form-control" id="title" name="title" required>
 
-        <label for="image" class="form-label">Content</label>
+        <label for="content" class="form-label">Content</label>
         <input type="text" class="form-control" id="content" name="content" required>
 
         <label for="image" class="form-label">Image</label>

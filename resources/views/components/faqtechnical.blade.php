@@ -4,7 +4,7 @@
 ?>
 
 <div class="faq-item-container">
-    <h1>General questions</h1>
+    <h1>Technical questions</h1>
 
     @foreach($questions as $question)
         @include('components.question')

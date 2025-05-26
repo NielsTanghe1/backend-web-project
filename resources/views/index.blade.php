@@ -2,6 +2,11 @@
 
 @section('content')
 
+
+<?php
+    use App\Models\Post;
+    $posts = Post::all()->sortByDesc('created_at');;
+?>
 <div class="home-container">
     <h1>Home page</h1>
 

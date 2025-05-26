@@ -2,20 +2,13 @@
     use App\Models\User;
 
     $user = User::find($post->user_id);
-    $comments = $post->comments;
+    $comments = $post->comments->sortByDesc('created_at');
 ?>
 @if(User::where('id', '=', $post->user_id)->exists())
     <div class="post">
         
 
-        <div class="user-banner">
-            <img src="{{ asset('storage/' . $user->image) }}" alt="profile-picture"></img>
-            @if($user->admin == 1)
-            <i style="font-size: small;">User is admin</i>
-            @endif
-            <h2 style="margin: 10px; font-weight: bold;">{{$user->displayname}}<h2>
-            <a href="{{ route('profile', ['user' => $user]) }}">Go to profile</a>
-        </div>
+        @include('components.userbanner')
 
         <h2>Posted at: {{$post->created_at}}</h2>
         <h1 style="font-size: larger; font-weight:bolder;">{{$post->title}}</h1>

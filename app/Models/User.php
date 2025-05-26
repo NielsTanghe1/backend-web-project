@@ -11,9 +11,7 @@ use App\Models\Contact;
 
 class User extends Authenticatable
 {
-    public function posts(){
-        return $this->hasMany(Post::class);
-    }
+
 
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -65,5 +63,10 @@ class User extends Authenticatable
     public function contacts()
     {
         return $this->hasMany(Contact::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
