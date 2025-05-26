@@ -24,6 +24,7 @@
 
             <a href="{{ route('register') }}"> Register </a>
 
+            @if(Auth::user())
             <a>
                 <form method="GET" action="{{ route('logout') }}">
                     @csrf
@@ -32,6 +33,7 @@
                     </button>   
                 </form>
             </a>
+            @endif
         </div>
     </nav>
 </div>

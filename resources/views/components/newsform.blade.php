@@ -1,4 +1,4 @@
- <form method="POST" action="{{ route('news.store') }}">
+ <form class="news-form" method="POST" action="{{ route('news.store') }}">
         @csrf
         @method('POST')
         <label for="title" class="form-label">Title</label>

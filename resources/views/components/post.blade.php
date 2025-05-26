@@ -15,6 +15,7 @@
         <p>
             {{$post->content}}
         </p>
+        <img class="post-img" src="{{ asset('storage/' . $post->image) }}" alt="post-picture"></img>
 
         @auth
             @include('components.commentform')

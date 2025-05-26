@@ -10,10 +10,13 @@ use App\Models\Contact;
 
 <h1>Admin panel</h1>
 
-<h2>Make a news article:</h2>
-@include('components.newsform')
+<div class="news-container">
+    <h2>Make a news article:</h2>
+    @include('components.newsform')
+</div>
 
 <div class="admin-container">
+
     <div class="user-table-container">
         <h2>Manage users:</h2>
 

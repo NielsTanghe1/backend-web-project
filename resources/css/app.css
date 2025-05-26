@@ -51,9 +51,14 @@
     margin: 30px;
 }
 
-.post img{
+.user-banner img{
     border-radius: 100%;
     width: 50px;
+}
+
+.post-img{
+    align-self: center;
+    width: 50%;
 }
 
 .user-banner{
@@ -191,3 +196,22 @@
     font-weight: bold;
 }
 
+.news-form{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.31);
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 1px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.news-container{
+    background-color: rgba(167, 201, 170, 0.449);
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 1px;
+    margin: 10px;
+    padding: 10px;
+}
