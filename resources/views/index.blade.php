@@ -8,7 +8,7 @@
     $posts = Post::all()->sortByDesc('created_at');;
 ?>
 <div class="home-container">
-    <h1>Home page</h1>
+    <h1>Bootleg Reddit</h1>
 
     @foreach ($posts as $post)
        @include('components.post')
