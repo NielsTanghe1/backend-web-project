@@ -89,4 +89,6 @@ Install via laravel
 ![Screenshot 2025-05-27 115459](https://github.com/user-attachments/assets/0def3a83-43c4-46a4-b48f-0796af0195b8)
 ![Screenshot 2025-05-27 115453](https://github.com/user-attachments/assets/f1b28ad4-6733-4feb-8a42-20f378e70ed0)
 ![Screenshot 2025-05-27 115443](https://github.com/user-attachments/assets/9997f646-1ae3-4bee-bb21-be66f9d07033)
+![Screenshot 2025-05-27 115742](https://github.com/user-attachments/assets/4d108590-7b5e-4a76-8f63-416c2cb8523b)
+![Screenshot 2025-05-27 115711](https://github.com/user-attachments/assets/482812f3-d0cd-4bf1-a689-c0edc0d000d7)
 
