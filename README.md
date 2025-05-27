@@ -1,61 +1,81 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Project Backend Web - Bootleg Reddit
 
-## About Laravel
+For my final project I made a forum based off Reddit.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Functionality
 
-## Learning Laravel
+- Guest users can:
+    - View posts
+    - View news
+    - View FAQ
+    - View user profiles
+    - Make an account
+- Users can
+    - Make a post:
+        - Title
+        - Content
+        - Optional image
+    - Edit their profile:
+        - Profile picture
+        - Display name
+        - Bio
+        - Birthday
+- Admins can
+    - Everything users can
+    - Acces the admin panel:
+        - Make other users admin
+        - Delete users
+        - Make news posts
+        - Make FAQ posts
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Extras
+- Commenting
+- Voting
+- Admin dashboard for contactmessages
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Implementation Technical Requirements Assignment
+- Views
+    - 3 Layouts -> Guest, User, Admin
+    - Used components for Posts, Profiles, News, Faq..
+    - Redirecting users if they arent logged in/ arent an Admin
+- Routes
+    - Routes use controller methods -> to fetch posts, users ect
+    - Routes user middelware -> Edit profile, Admin page
+- Controller
+    - Used controllers for the logic of all pages
+- Models
+    - Made all the neccesairy models for the entities i needed
+    - Relations
+        - One to Many
+            - One user can have many posts
+            - Votes can be given by multiple user to multiple posts
+- Database
+    - Is equipped with seeders to populate the Database
+- Authentication
+    - Login/out
+    - Remeber methods
+    - Register
+    - Default Admin
+        - admin
+        - admin@ehb.be
+        - Password!321
+## Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Install via laravel
 
-## Laravel Sponsors
+- Make sure blade is installed
+- Make sure npm is installed
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    
+## Sources
+- https://canvas.ehb.be/courses/39355
+- https://laravel.com/docs/12.x
+- https://laracasts.com/discuss
+- https://stackoverflow.com/questions
+- No AI used
+## Screenshots
