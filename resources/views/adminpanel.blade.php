@@ -12,7 +12,10 @@ use App\Models\Contact;
 
 <div class="news-container">
     <h1>Admin panel</h1>
-    @include('components.newsform')
+    <div style="display: flex; flex-direction: row;">
+        @include('components.newsform')
+        @include('components.makefaq')
+    </div>
 </div>
 
 <div class="admin-container">

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('title');
             $table->text('content');
+            $table->text('anwser')->nullable();
             $table->integer('type');
             $table->timestamps();
         });

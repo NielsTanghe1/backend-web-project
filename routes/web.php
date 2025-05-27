@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\NewsController;
 use App\Models\Faq;
 use Illuminate\Support\Facades\Route;
@@ -33,9 +34,12 @@ Route::get('/makepost', function () {
 }) -> name('makepost');
 
 Route::post('/storepost', [PostController::class, 'store'])->name('post.store');
+Route::post('/votepost', [PostController::class, 'vote'])->name('post.vote');
+
 Route::post('/storenews', [NewsController::class, 'store'])->name('news.store');
 Route::post('/storecomment', [CommentController::class, 'store'])->name('comment.store');
 Route::post('/storecontact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/faq', [FaqController::class, 'store'])->name('faq.store');
 
 
 Route::patch('/makeadmin', [ProfileController::class, 'makeadmin'])->name('makeadmin');

@@ -15,6 +15,7 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraphs(3, true),
+            'votes' => rand(0, 100),
             'user_id' => User::factory()
         ];
     }   

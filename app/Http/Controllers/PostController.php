@@ -26,5 +26,21 @@ class PostController extends Controller
 
         return view('index');
     }
+
+    public function vote(Request $request)
+    {
+
+        $postid = $request->postid;
+        // dd($postid);
+        $post = Post::find($postid);
+
+        $validated = $request->validate([
+            'votes' => 'required',
+        ]);
+
+        $post->update($validated);
+
+        return view('index');
+    }
 }
 

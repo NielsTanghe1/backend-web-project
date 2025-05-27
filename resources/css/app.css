@@ -208,6 +208,18 @@
     width: 50%;
 }
 
+.post-form{
+    display: flex;
+    flex-direction: column  ;
+    background-color: rgba(0, 110, 18, 0.303);
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 1px;
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
+}
+
 .news-container{
     display: flex;
     flex-direction: column;
@@ -220,4 +232,59 @@
 .news-container h1{
     font-size: xx-large;
     margin: 30px;
+}
+
+.news-container button{
+    background-color: rgba(255, 255, 255, 0.505);
+    margin: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.edit-profile{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 110, 18, 0.303);
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 1px;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+    width: 50%;
+}
+
+.edit-profile button{
+    background-color: beige;
+    margin: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.edit-item{
+    display: flex;
+    flex-direction: column;
+}
+
+.vote-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.589);
+    padding: 15px;
+    margin: 10px;
+    width: fit-content;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.vote-form-up{
+    background-color: rgb(126, 255, 126);
+    border-radius: 100%;
+}
+
+.vote-form-down{
+    background-color: rgb(255, 125, 125);
+    border-radius: 100%;
 }

@@ -59,7 +59,6 @@ class ProfileController extends Controller
         ]);
 
         $imagePath = $request->file('image')->store('users', 'public');
-        dd($imagePath);
         $user->update($validated);
         $user->image = $imagePath;
         $user->save();

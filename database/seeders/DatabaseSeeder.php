@@ -17,8 +17,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        News::factory(10)->create();
-
+        News::factory(10)->create();        
         User::factory(10)->create()->each(function ($user)
         {
             $user->posts()->saveMany(
@@ -57,6 +56,31 @@ class DatabaseSeeder extends Seeder
             'admin' => true,
             'birthday' => '1 Januari',
             'image' => 'default-profile-picture.jpg',
+        ]);
+
+        Faq::create([
+            'title' => 'Question title',
+            'content' => 'Detailed description of the question...',
+            'anwser' => 'Detailed anwser for the question...',
+            'type' => 1,
+        ]);
+         Faq::create([
+            'title' => 'Question title',
+            'content' => 'Detailed description of the question...',
+            'anwser' => 'Detailed anwser for the question...',
+            'type' => 1,
+        ]);
+         Faq::create([
+            'title' => 'Question title',
+            'content' => 'Detailed description of the question...',
+            'anwser' => 'Detailed anwser for the question...',
+            'type' => 2,
+        ]);
+        Faq::create([
+            'title' => 'Question title',
+            'content' => 'Detailed description of the question...',
+            'anwser' => 'Detailed anwser for the question...',
+            'type' => 2,
         ]);
 
     }

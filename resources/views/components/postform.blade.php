@@ -1,4 +1,4 @@
- <form method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
+ <form class="post-form" method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
         @csrf
         <label for="title" class="form-label">Post title</label>
         <input type="text" class="form-control" id="title" name="title" required>
